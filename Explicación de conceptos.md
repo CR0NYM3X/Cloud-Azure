@@ -43,7 +43,7 @@ Un **Grupo de recursos** es una **unidad lógica** dentro de una **suscripción*
 ### 🎯 Objetivo:
 La empresa quiere separar sus entornos de **producción**, **desarrollo** y **seguridad**, y organizar sus recursos para facilitar la administración, facturación y control de acceso.
 
----
+ 
 
 ### 🔹 Estructura en Azure
 
@@ -54,7 +54,7 @@ La empresa quiere separar sus entornos de **producción**, **desarrollo** y **se
 
 Cada una tiene su propia facturación, límites y políticas.
 
----
+ 
 
 #### 🔸 Grupos de recursos dentro de cada suscripción:
 
@@ -79,7 +79,7 @@ Cada una tiene su propia facturación, límites y políticas.
 | `RG-Backup` | Recovery Vault, Azure Backup | Respaldos |
 | `RG-Compliance` | Azure Policy, Defender | Cumplimiento normativo |
 
----
+ 
 
 ### 🧠 Beneficios de esta estructura
 
@@ -89,4 +89,57 @@ Cada una tiene su propia facturación, límites y políticas.
 - **Facilidad de automatización**: Puedes aplicar plantillas ARM o Bicep por grupo.
 - **Escalabilidad**: Puedes agregar más suscripciones o grupos según crezca la empresa.
  
+---
 
+## 🏷️ ¿Qué son las etiquetas en Azure?
+
+Las **etiquetas** son pares clave-valor que puedes asignar a **cualquier recurso**, **grupo de recursos** o incluso a una **suscripción**.  
+Sirven para **clasificar, organizar, buscar, automatizar y controlar costos** de tus recursos.
+
+ 
+
+### 🔗 Relación con suscripciones y grupos de recursos
+
+- Puedes aplicar etiquetas a:
+  - Recursos individuales (VMs, bases de datos, etc.)
+  - Grupos de recursos
+  - Suscripciones completas
+
+- Las etiquetas **no afectan el funcionamiento** del recurso, pero sí ayudan a:
+  - Filtrar en el portal
+  - Generar reportes de costos
+  - Aplicar políticas
+  - Automatizar tareas
+
+ 
+
+## 📌 Ejemplo real de uso de etiquetas
+
+### 🎯 Escenario: Empresa con múltiples proyectos y equipos
+
+Supongamos que tienes una **suscripción de producción** con varios grupos de recursos y recursos dentro de ellos.
+
+#### 🔸 Grupo de recursos: `RG-WebAppProd`
+Contiene:
+- VM: `vm-web-01`
+- SQL Database: `sql-web-prod`
+- App Service: `webapp-prod`
+
+#### 🔸 Etiquetas aplicadas:
+
+| Recurso | Etiquetas |
+|--------|-----------|
+| `RG-WebAppProd` | `Proyecto = WebApp`, `Ambiente = Producción`, `Equipo = Desarrollo` |
+| `vm-web-01` | `Owner = Juan`, `CostoCentro = 1001` |
+| `sql-web-prod` | `Ambiente = Producción`, `Backup = Diario` |
+| `webapp-prod` | `Proyecto = WebApp`, `Cliente = Interno` |
+
+ 
+
+### 🧠 ¿Para qué sirven estas etiquetas?
+
+1. **Costos**: Puedes generar reportes por `CostoCentro` o `Proyecto`.
+2. **Automatización**: Puedes aplicar scripts que actúen solo sobre recursos con `Ambiente = Producción`.
+3. **Seguridad**: Puedes aplicar políticas que obliguen a tener la etiqueta `Owner` en cada VM.
+4. **Auditoría**: Saber quién es responsable de cada recurso (`Owner = Juan`).
+5. **Filtrado en el portal**: Buscar todos los recursos del `Proyecto = WebApp`.
