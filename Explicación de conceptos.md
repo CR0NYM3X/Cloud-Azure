@@ -148,7 +148,8 @@ Contiene:
 # 🧩 ¿Qué es una directiva en Azure?
 
 En el contexto de **Azure Policy**, una **directiva** es una **regla específica** que define **qué está permitido, prohibido, auditado o configurado automáticamente** en tus recursos de Azure.
-Se pueden asignar a Managment Groups , Suscripción, Grupos de recursos ,  recuros .
+Se pueden asignar a Managment Groups -> Suscripción -> Grupos de recursos -> recuros . 
+Estas tambien se heredan.
 
 
 ## 🧠 Estructura general
@@ -197,3 +198,13 @@ Si alguien intenta crear una VM sin la etiqueta `Ambiente`, Azure **rechaza la o
 | Ejemplo | “Requiere la etiqueta `Owner` en todos los recursos.” | “Cumplimiento de gobernanza básica” que incluye varias directivas: etiquetas, ubicación, tipos de recursos, etc. |
 | Alcance | Se asigna directamente a una suscripción o grupo de recursos. | Se asigna igual, pero aplica **todas las directivas incluidas**. |
 | Reutilización | Se usa para reglas específicas. | Se usa para **estándares corporativos o regulatorios**. |
+
+## 🧩 Diferencias entre Definición y Asignación en Azure Policy
+
+| Concepto | **Definición** | **Asignación** |
+|----------|----------------|----------------|
+| ¿Qué es? | Es la **plantilla o regla** que describe lo que se quiere controlar o auditar. | Es el **acto de aplicar** esa definición a un ámbito específico (suscripción, grupo de recursos, etc.). |
+| ¿Contiene lógica? | ✅ Sí, incluye condiciones, parámetros, efectos (`Deny`, `Audit`, etc.). | ❌ No contiene lógica, solo usa la definición existente. |
+| ¿Se puede reutilizar? | ✅ Sí, puedes usar la misma definición en múltiples asignaciones. | ✅ Sí, puedes asignar la misma definición en diferentes lugares. |
+| ¿Dónde se crea? | En **Azure Policy > Definiciones**. | En **Azure Policy > Asignaciones** o desde la definición misma. |
+| ¿Ejemplo? | “Requiere etiqueta `Owner` en todos los recursos.” | “Aplicar la política de etiqueta `Owner` a la suscripción de producción.” |
