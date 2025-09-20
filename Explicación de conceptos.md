@@ -193,3 +193,14 @@ Si alguien intenta crear una VM sin la etiqueta `Ambiente`, Azure **rechaza la o
 | `Audit VMs without backup` | Audit | Detecta máquinas sin respaldo |
 | `Deploy Diagnostic Settings` | DeployIfNotExists | Configura monitoreo automáticamente |
 | `Allowed Resource Types` | Deny | Restringe tipos de recursos permitidos |
+
+
+## 🧩 Diferencias entre Directiva e Iniciativa en Azure Policy
+
+| Concepto | **Directiva** | **Iniciativa** |
+|----------|----------------|----------------|
+| ¿Qué es? | Una **regla individual** que define una condición específica para los recursos. | Un **conjunto de directivas agrupadas** para cumplir un objetivo más amplio. |
+| Propósito | Aplicar una regla puntual (ej. exigir una etiqueta). | Aplicar varias reglas relacionadas (ej. gobernanza de recursos). |
+| Ejemplo | “Requiere la etiqueta `Owner` en todos los recursos.” | “Cumplimiento de gobernanza básica” que incluye varias directivas: etiquetas, ubicación, tipos de recursos, etc. |
+| Alcance | Se asigna directamente a una suscripción o grupo de recursos. | Se asigna igual, pero aplica **todas las directivas incluidas**. |
+| Reutilización | Se usa para reglas específicas. | Se usa para **estándares corporativos o regulatorios**. |
