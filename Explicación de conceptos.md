@@ -148,15 +148,8 @@ Contiene:
 # 🧩 ¿Qué es una directiva en Azure?
 
 En el contexto de **Azure Policy**, una **directiva** es una **regla específica** que define **qué está permitido, prohibido, auditado o configurado automáticamente** en tus recursos de Azure.
+Se pueden asignar a Managment Groups , Suscripción, Grupos de recursos ,  recuros .
 
- 
-
-### 🔗 Relación entre Azure Policy y las directivas
-
-- **Azure Policy** es el **servicio** que gestiona el cumplimiento de reglas.
-- Una **directiva** es una **unidad individual** dentro de Azure Policy que contiene una regla específica.
-- Puedes **asignar** una directiva a una **suscripción**, **grupo de recursos** o **recurso**.
- 
 
 ## 🧠 Estructura general
 
