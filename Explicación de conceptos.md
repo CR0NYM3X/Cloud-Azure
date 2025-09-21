@@ -208,3 +208,61 @@ Si alguien intenta crear una VM sin la etiqueta `Ambiente`, Azure **rechaza la o
 | ¿Se puede reutilizar? | ✅ Sí, puedes usar la misma definición en múltiples asignaciones. | ✅ Sí, puedes asignar la misma definición en diferentes lugares. |
 | ¿Dónde se crea? | En **Azure Policy > Definiciones**. | En **Azure Policy > Asignaciones** o desde la definición misma. |
 | ¿Ejemplo? | “Requiere etiqueta `Owner` en todos los recursos.” | “Aplicar la política de etiqueta `Owner` a la suscripción de producción.” |
+
+
+---
+
+## 🧩 ¿Qué es una Red Virtual (VNet) en Azure?
+
+Una **VNet (Virtual Network)** es como una red física tradicional, pero dentro de Azure. Permite que tus recursos (máquinas virtuales, bases de datos, etc.) se comuniquen entre sí, con internet o con tu red local.
+
+### Componentes clave de una VNet:
+1. **Subredes (Subnets):** Dividen la VNet en segmentos más pequeños.
+2. **Interfaces de red (NICs):** Cada máquina virtual tiene una o más interfaces que se conectan a una subred.
+3. **Direcciones IP:** Cada NIC tiene una IP privada (y opcionalmente una pública).
+4. **NSG (Network Security Groups):** Controlan el tráfico que entra y sale de las subredes o NICs.
+5. **Peering:** Permite conectar dos VNets para que se comuniquen entre sí.
+6. **VPN Gateway / ExpressRoute:** Para conectar tu red local con Azure.
+
+
+Los **Grupos de Seguridad de Red (NSG - Network Security Groups)** en Azure son como **firewalls básicos** que controlan el tráfico de red hacia y desde los recursos dentro de una red virtual. Son esenciales para proteger tus máquinas virtuales y otros servicios.
+
+---
+
+## 🔐 ¿Qué es un NSG?
+
+Un **NSG** contiene una lista de **reglas de seguridad** que permiten o deniegan el tráfico de red **entrante (inbound)** y **saliente (outbound)** basado en:
+
+- Dirección IP origen/destino
+- Puerto origen/destino
+- Protocolo (TCP/UDP)
+- Prioridad de la regla
+ 
+
+Puedes asociar un NSG a:
+
+1. **Una subred completa** → afecta a todos los recursos dentro de esa subred.
+2. **Una interfaz de red (NIC)** → afecta solo a la VM conectada a esa NIC.
+
+> ⚠️ Si hay NSG en la subred y en la NIC, **ambos aplican** y las reglas se combinan.
+ 
+Las reglas tienen:
+
+- **Prioridad:** número entre 100 y 4096 (menor número = mayor prioridad).
+- **Acción:** permitir o denegar.
+- **Nombre:** identificador único.
+- **Origen/Destino:** IP, rango o etiqueta (como `Internet`, `VirtualNetwork`, etc.).
+- **Puerto:** específico o rango.
+- **Protocolo:** TCP, UDP o ambos.
+
+ 
+
+## 🧪 Ejemplo de reglas comunes
+
+| Prioridad | Nombre         | Origen     | Puerto destino | Acción  | Descripción                  |
+|-----------|----------------|------------|----------------|---------|------------------------------|
+| 100       | Allow-SSH      | Internet   | 22             | Allow   | Permite acceso SSH a Linux   |
+| 200       | Allow-RDP      | Internet   | 3389           | Allow   | Permite acceso RDP a Windows |
+| 300       | Deny-All       | Internet   | *              | Deny    | Bloquea todo lo demás        |
+
+
