@@ -254,4 +254,88 @@ Supongamos que estás en la región `West Europe`:
   - Azure SQL
   - App Gateway
  
-  
+  ---
+
+  ### 🧭 **Ruta clara para implementar Control de Accesos en Azure**
+
+Aquí tienes una guía paso a paso para comenzar desde cero:
+
+ 
+
+## 🔐 1. **Entender el modelo de identidad en Azure**
+
+Azure usa **Azure Active Directory (Azure AD)** como base para la gestión de identidades y accesos.
+
+- **Usuarios**: Empleados, contratistas, servicios.
+- **Grupos**: Para asignar permisos de forma masiva.
+- **Roles**: Definen qué acciones pueden realizar los usuarios.
+- **Recursos**: Máquinas virtuales, bases de datos, redes, etc.
+
+ 
+
+## 🧱 2. **Crear usuarios y grupos**
+
+Puedes hacerlo desde el portal de Azure o con PowerShell/CLI.
+
+- **Portal**: Azure AD → Usuarios → Nuevo usuario.
+- **Grupos**: Azure AD → Grupos → Crear grupo (por departamento, rol, proyecto).
+ 
+
+## 🛡️ 3. **Asignar roles con Azure RBAC (Role-Based Access Control)**
+
+Azure RBAC permite asignar **roles predefinidos o personalizados** a usuarios/grupos sobre recursos específicos.
+
+- Ejemplo: El grupo "DB Admins" tiene el rol "Contributor" sobre la base de datos `prod-db`.
+- Roles comunes:
+  - **Reader**: Solo lectura.
+  - **Contributor**: Lectura y escritura, sin borrar.
+  - **Owner**: Control total.
+  - **User Access Administrator**: Puede asignar roles.
+ 
+## 📜 4. **Aplicar políticas con Azure Policy**
+
+Azure Policy te permite **definir reglas y restricciones** sobre los recursos.
+
+- Ejemplos:
+  - Solo se pueden crear VMs en ciertas regiones.
+  - Las VMs deben tener etiquetas específicas.
+  - Las bases de datos deben tener cifrado activado.
+ 
+
+## 🧩 5. **Usar Conditional Access (Acceso Condicional)**
+
+Controla el acceso según condiciones como:
+
+- Ubicación geográfica.
+- Dispositivo usado.
+- Estado de seguridad del usuario.
+
+Ejemplo: "Solo permitir acceso al portal de Azure desde México y con MFA (autenticación multifactor)".
+ 
+
+## 🔐 6. **Implementar MFA y seguridad de inicio de sesión**
+
+- Activar **Multi-Factor Authentication** para todos los usuarios.
+- Configurar **Identity Protection** para detectar riesgos de inicio de sesión.
+ 
+
+## 🧰 7. **Auditoría y monitoreo**
+
+- Usa **Azure Monitor**, **Log Analytics** y **Microsoft Defender for Cloud** para:
+  - Ver quién accedió a qué.
+  - Detectar accesos sospechosos.
+  - Generar alertas y reportes.
+ 
+
+### 📚 Recursos recomendados para aprender y aplicar
+
+1. Documentación oficial de Azure AD
+2. Azure RBAC
+3. Azure Policy
+4. Acceso condicional
+5. Microsoft Learn - Ruta de aprendizaje de seguridad en Azure
+
+
+
+
+
