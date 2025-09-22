@@ -1,4 +1,10 @@
 
+
+
+### 📘 ¿Qué es una cuenta de almacenamiento en Azure?
+
+Una **cuenta de almacenamiento** en Azure es un contenedor lógico que te permite acceder y administrar servicios de almacenamiento, primero crear una cuenta de almacenamiento. Esta cuenta es como una "carpeta principal" donde se guardan todos tus contenedores. Sin ella, no puedes subir ni acceder a archivos.
+
 ### 🧠 Tipos de almacenamiento en Azure
 
 Azure ofrece varios servicios de almacenamiento, agrupados principalmente en:
@@ -21,15 +27,28 @@ Azure ofrece varios servicios de almacenamiento, agrupados principalmente en:
 5. **Disk Storage**  
    - Discos gestionados para máquinas virtuales (HDD, SSD estándar/premium).
 
+Cuando creas una cuenta de almacenamiento, defines:
 
-### 💰 Modelos de costos
+1. **Tipo de redundancia** (LRS, ZRS, GRS, GZRS, etc.)
+2. **Tipo de rendimiento** (Standard o Premium)
+   
+| Tipo de rendimiento | Tecnología | Características | Escenarios recomendados |
+|---------------------|------------|------------------|--------------------------|
+| **Estándar**        | HDD (disco duro) | Más económico, buena capacidad, latencia moderada | Archivos generales, backups, datos no críticos |
+| **Prémium**         | SSD (estado sólido) | Alta velocidad, baja latencia, mayor costo | Bases de datos, apps críticas, discos de VM |
 
-Azure cobra por:
+- **Estándar** usa almacenamiento basado en discos duros (HDD), ideal para cargas de trabajo que no requieren acceso ultra rápido.
+- **Prémium** usa discos SSD, lo que permite **latencia muy baja** y **mayor rendimiento**, especialmente útil en escenarios como:
+  - Discos administrados para máquinas virtuales (Premium SSD)
+  - Bases de datos con alta demanda de IOPS
+  - Aplicaciones empresariales sensibles al rendimiento
 
-- **Capacidad**: GB almacenados por mes.
-- **Transacciones**: operaciones de lectura/escritura.
-- **Transferencia de datos**: especialmente salidas (egress).
-- **Redundancia**: más copias = más coste.
+4. **Tipo de Almacenamiento** (General Purpose v2, BlobStorage, FileStorage, etc.)
+5. **Ubicación geográfica**
+6. **Acceso público o privado**
+
+--- 
+
 
 
 
@@ -75,18 +94,7 @@ Azure ofrece varios tipos de redundancia para proteger tus datos ante fallos loc
 | Queue Storage          | ✅ Sí       | ✅ Sí                | Mensajería |
 | Disk Storage           | ✅ Sí       | ❌ No (incluido en VM) | Discos de VM |
 
-
-
-
-#### Tipos de redundancia:
-
-| Tipo | Descripción | Costo |
-|------|-------------|-------|
-| LRS (Locally Redundant) | 3 copias en un datacenter | Bajo |
-| ZRS (Zone Redundant) | Copias en zonas de disponibilidad | Medio |
-| GRS (Geo Redundant) | Copias en otra región | Alto |
-| RA-GRS (Read Access GRS) | Igual que GRS pero con lectura en región secundaria | Alto |
-
+ 
 ---
 
 ### ✅ Ventajas y ❌ Desventajas
