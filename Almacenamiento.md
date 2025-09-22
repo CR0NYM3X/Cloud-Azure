@@ -49,11 +49,18 @@ Azure cobra según **varios factores**, no solo por el espacio ocupado:
 - Salida de datos (egreso) hacia internet tiene costo.
 - **Ejemplo**: Descargar archivos desde Blob Storage a un cliente externo.
 
-### 4. **Por tipo de redundancia**
-- **LRS (Local Redundant Storage)**: más barato, solo una copia local.
-- **GRS (Geo Redundant Storage)**: más caro, copia en otra región.
-- **ZRS (Zone Redundant Storage)**: balance entre disponibilidad y costo.
+### 4. **Por Tipos de redundancia en Azure Storage**
+> En Azure, la redundancia de almacenamiento se refiere a cuántas copias de tus datos se guardan y dónde. Esto ayuda a protegerlos contra fallos.
+ 
+Azure ofrece varios tipos de redundancia para proteger tus datos ante fallos locales, regionales o geográficos. Aquí están los principales:
 
+| Tipo de Redundancia | Copias | Ubicación | Nivel de protección |
+|---------------------|--------|-----------|----------------------|
+| **LRS** (Locally Redundant Storage) | 3 copias | Dentro de un solo datacenter | Protección contra fallos de hardware local |
+| **ZRS** (Zone-Redundant Storage) | 3 copias | En 3 zonas de disponibilidad dentro de una región | Protección contra fallos de zona |
+| **GRS** (Geo-Redundant Storage) | 6 copias (3 local + 3 en región secundaria) | Región primaria + región secundaria | Protección contra fallos regionales |
+| **GZRS** (Geo-Zone-Redundant Storage) | 6 copias (3 en zonas + 3 en región secundaria) | Zonas en región primaria + región secundaria | Protección avanzada contra fallos de zona y región |
+| **RA-GRS / RA-GZRS** | Igual que GRS/GZRS pero con acceso de solo lectura a la región secundaria | | Ideal para alta disponibilidad de lectura |
 ---
 
 ## 📊 Comparativa rápida
