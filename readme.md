@@ -5,6 +5,7 @@
 - ✅ Crear grupos de recursos
 - 🔲 Comprender regiones y zonas de disponibilidad
 - 🔲 Etiquetado de recursos para control de costos
+- 🔲 Microsoft Entra ID
 
  
 
