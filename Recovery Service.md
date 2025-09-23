@@ -66,8 +66,8 @@ Los costos se dividen en:
 - **Costo por instancia protegida** (por mes):
   - Ejemplo: VM de hasta 50 GB ≈ \$5 USD/mes.
 - **Costo por almacenamiento**:
-  - **Locally Redundant Storage (LRS)**: más barato.
-  - **Geo-Redundant Storage (GRS)**: más seguro, más caro.
+  - **Locally Redundant Storage (LRS)**: más barato, tres copias de manera local en el mismo centro de datos.
+  - **Geo-Redundant Storage (GRS)**: más seguro, más caro, tres copias en total cada uno en tres zonas diferentes.
 
 ### 2. **Azure Site Recovery**
 - **Costo por instancia replicada**:
