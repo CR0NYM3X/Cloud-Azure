@@ -101,3 +101,42 @@ Supongamos que tienes 100 VMs críticas en producción:
 - Costos pueden escalar rápidamente si no se optimiza.
 - Requiere planificación para evitar duplicación innecesaria de datos.
 - Algunas configuraciones avanzadas requieren experiencia técnica.
+
+
+
+---
+
+### 🛡️ ¿Cómo es posible hacer backups on-premise en Azure?
+
+Azure ofrece varias soluciones para esto:
+
+ 
+### 🔗 Requisitos generales
+
+- Conectividad a internet desde tus servidores locales.
+- Configuración de **Recovery Services Vault** en Azure.
+- Instalación de agentes o configuración de Azure Arc.
+- Políticas de backup definidas (frecuencia, retención, etc.).
+ 
+
+### 1. **Azure Backup**
+- Puedes instalar el **Azure Backup Agent** en tus servidores físicos (Windows Server, por ejemplo).
+- Este agente se conecta a Azure y permite hacer **copias de seguridad de archivos, carpetas, y volúmenes** directamente en la nube.
+- También puedes usar **Microsoft Azure Recovery Services (MARS)** para programar backups automáticos.
+
+ 
+
+### 2. **Azure Site Recovery**
+- Aunque está diseñado para **recuperación ante desastres**, también puede replicar máquinas virtuales y servidores físicos hacia Azure.
+- Esto permite tener una copia actualizada de tu infraestructura en caso de falla.
+ 
+
+### 3. **Azure Arc + Azure Backup**
+- Si tienes servidores Linux o Windows en on-premise, puedes **registrarlos en Azure Arc**.
+- Una vez registrados, puedes aplicar políticas de backup como si fueran recursos nativos de Azure.
+
+ 
+
+### 4. **Azure File Sync**
+- Si tienes servidores de archivos locales, puedes sincronizar carpetas con **Azure Files**.
+- Esto permite tener una copia en la nube y usarla como respaldo o para recuperación.
