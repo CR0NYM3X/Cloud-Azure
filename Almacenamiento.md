@@ -118,3 +118,53 @@ Azure ofrece varios tipos de redundancia para proteger tus datos ante fallos loc
 | Queue        | Mensajes          | API REST   | LRS         | Bajo  | Microservicios |
 | Table        | NoSQL estructurado| API REST   | LRS         | Bajo  | Logs, datos de usuario |
 | Disk         | Persistente para VMs | VM directa | LRS/ZRS     | Alto  | Discos de sistema |
+
+
+---
+
+
+### 🚀 ¿Para qué sirve AzCopy?
+
+AzCopy se usa principalmente para:
+
+- Subir archivos a **Azure Blob Storage**, **File Storage** o **Table Storage**.
+- Descargar archivos desde Azure a tu máquina local o a otro servidor.
+- Copiar datos entre cuentas de almacenamiento en Azure.
+- Automatizar transferencias de datos en scripts o procesos de migración.
+
+ 
+
+### 🧰 Características clave
+
+- **Alta velocidad**: Optimizado para transferencias grandes.
+- **Seguridad**: Compatible con SAS tokens, Azure AD, y claves de cuenta.
+- **Multiplataforma**: Funciona en Windows, Linux y macOS.
+- **Automatizable**: Ideal para tareas programadas o scripts.
+
+ 
+
+### 📦 Ejemplo de uso básico
+
+Supongamos que quieres subir un archivo local a un contenedor en Azure Blob Storage:
+
+```bash
+azcopy copy "C:\archivos\miarchivo.txt" "https://miaccount.blob.core.windows.net/micontenedor?SAS_TOKEN" --overwrite=true
+```
+
+O descargar un archivo desde Azure:
+
+```bash
+azcopy copy "https://miaccount.blob.core.windows.net/micontenedor/miarchivo.txt?SAS_TOKEN" "C:\descargas\" --recursive
+```
+
+ 
+
+### 🔐 ¿Cómo se autentica AzCopy?
+
+Puedes usar:
+
+- **SAS tokens** (como los que mencionaste antes).
+- **Azure AD** (si estás autenticado con `az login`).
+- **Clave de cuenta** (menos recomendado por seguridad).
+
+
