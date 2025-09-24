@@ -1,3 +1,8 @@
+
+## Calculadora [Link Azure](https://azure.microsoft.com/es-es/pricing/calculator/)
+## Validar Alertas sobre los costos y Presupuestos
+
+
 ## 🧭 Catálogo de Aprendizaje Azure — Proyecto Empresarial
 
 ### 🔹 1. **Fundamentos de Azure**
