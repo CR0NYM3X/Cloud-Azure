@@ -341,7 +341,9 @@ Ejemplo: "Solo permitir acceso al portal de Azure desde México y con MFA (auten
 4. Acceso condicional
 5. Microsoft Learn - Ruta de aprendizaje de seguridad en Azure
 
-
-
+### Links
+```
+https://learn.microsoft.com/en-us/training/browse/
+```
 
 
